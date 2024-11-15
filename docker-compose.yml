@@ -1,0 +1,47 @@
+# docker-compose.yaml
+version: '3.8'
+services:
+  jenkins:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    #image: jenkins/jenkins:lts
+    privileged: true
+    restart: always
+    user: root
+    ports:
+      - 8080:8080
+      - 50000:50000
+    container_name: jenkins
+    volumes:
+      - /jenkins/jenkins_log:/var/log/jenkins:rw
+      - /jenkins/jenkins_home:/var/jenkins_home:rw
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /eda:/eda:ro
+    environment:
+      - JENKINS_OPTS=--prefix=/jenkins
+  nginx:
+    image: nginx:latest
+    container_name: nginx
+    restart: always
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - ./nginx/data:/var/www/nginx/:ro
+      - ./nginx/conf/:/etc/nginx/conf.d/:ro
+      - ./certbot/www:/var/www/certbot/:ro
+      - ./certbot/conf/:/etc/nginx/ssl/:ro
+    depends_on:
+      - jenkins
+  certbot:
+    image: certbot/certbot
+    container_name: certbot
+    volumes:
+      - ./certbot/www:/var/www/certbot/:rw
+      - ./certbot/conf:/etc/letsencrypt/:rw
+    #entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"
+    restart: always
+    depends_on:
+      - nginx
+
