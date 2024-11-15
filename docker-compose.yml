@@ -28,7 +28,7 @@ services:
       - 80:80
       - 443:443
     volumes:
-      - ./nginx/data:/var/www/nginx/:ro
+      - ./nginx/data:/var/www/html/:ro
       - ./nginx/conf/:/etc/nginx/conf.d/:ro
       - ./certbot/www:/var/www/certbot/:ro
       - ./certbot/conf/:/etc/nginx/ssl/:ro
