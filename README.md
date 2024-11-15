@@ -5,4 +5,4 @@ sudo docker compose run --rm certbot renew
 
 reload nginx:
 
-sudo docker compose exec webserver nginx -s reload
+sudo docker compose exec nginx nginx -s reload
