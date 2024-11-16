@@ -16,7 +16,11 @@ RUN apt-get update && apt-get install -y \
 # Instala o pacote 'locales', gera en_US.UTF-8 e configura
 RUN apt-get update && apt-get install -y locales && \
     locale-gen en_US.UTF-8 && \
-    update-locale LANG=en_US.UTF-8
+    LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8 update-locale
+
+RUN localedef -i en_US -f UTF-8 en_US.UTF-8
+RUN echo "LANG=\"en_US.UTF-8\"" > /etc/locale.conf
+RUN ln -s -f /usr/share/zoneinfo/US/Eastern /etc/localtime
 
 # Define as variáveis de ambiente
 ENV LC_ALL=en_US.UTF-8 \
