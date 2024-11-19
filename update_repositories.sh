@@ -12,7 +12,7 @@ git --git-dir=/eda/processor-ci-controller/.git --work-tree=/eda/processor-ci-co
 git --git-dir=/eda/processor-ci/.git --work-tree=/eda/processor-ci pull
 git --git-dir=/eda/processor-ci-tests/.git --work-tree=/eda/processor-ci-tests pull
 git --git-dir=/eda/processor-ci-website/.git --work-tree=/eda/processor-ci-website pull
-git --git-dir=/eda/processor-ci-infraestructure/.git --work-tree=/eda/processor-ci-infraestructure pull
+git --git-dir=/eda/processor-ci-infrastructure/.git --work-tree=/eda/processor-ci-infrastructure pull
 git --git-dir=/eda/processor_ci_communication/.git --work-tree=/eda/processor_ci_communication pull
 
 cd /eda/processor-ci-website

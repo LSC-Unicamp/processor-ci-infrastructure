@@ -69,7 +69,7 @@ git clone --recursive https://github.com/LSC-Unicamp/processor-ci-controller.git
 git clone https://github.com/LSC-Unicamp/processor-ci.git
 git clone --recursive https://github.com/LSC-Unicamp/processor-ci-tests.git
 git clone https://github.com/LSC-Unicamp/processor-ci-website.git
-git clone https://github.com/LSC-Unicamp/processor-ci-infraestructure.git
+git clone https://github.com/LSC-Unicamp/processor-ci-infrastructure.git
 git clone https://github.com/LSC-Unicamp/processor_ci_communication.git
 
 
@@ -106,7 +106,7 @@ echo "Instalação concluída com sucesso!"
 # Configurando cron
 
 # Define a nova entrada para o crontab
-NEW_CRON_JOB="0 23 * * * /eda/processor-ci-infraestructure/update_repositories.sh"
+NEW_CRON_JOB="0 23 * * * /eda/processor-ci-infrastructure/update_repositories.sh"
 
 # Verifica se a tarefa já existe no crontab
 (crontab -l 2>/dev/null | grep -Fxq "$NEW_CRON_JOB") && {
