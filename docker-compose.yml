@@ -2,6 +2,14 @@
 version: '3.8'
 services:
   jenkins:
+    mem_limit: 12g
+    cpus: 8
+    shm_size: '12g'
+    deploy:
+      resources:
+        limits:
+          memory: '0'
+        reservations: {}
     build:
       context: .
       dockerfile: Dockerfile
@@ -20,6 +28,7 @@ services:
       - /eda:/eda:ro
     environment:
       - JENKINS_OPTS=--prefix=/jenkins
+      - LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libudev.so.1
   nginx:
     image: nginx:latest
     container_name: nginx
