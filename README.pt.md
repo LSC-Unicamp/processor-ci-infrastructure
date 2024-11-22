@@ -1,7 +1,5 @@
 # ProcessorCI Infrastructure
 
-[![Build Status](https://github.com/LSC-Unicamp/processor-ci-infrastructure/actions/workflows/build.yml/badge.svg)](https://github.com/LSC-Unicamp/processor-ci-infrastructure/actions/workflows/build.yml)
-
 Bem-vindo ao ProcessorCI!
 
 **ProcessorCI** é um projeto que busca modernizar o processo de verificação de processadores, integrando técnicas consolidadas de verificação, integração contínua e uso de FPGAs.
