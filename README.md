@@ -1,7 +1,5 @@
 # ProcessorCI Infrastructure
 
-[![Build Status](https://github.com/LSC-Unicamp/processor-ci-infrastructure/actions/workflows/build.yml/badge.svg)](https://github.com/LSC-Unicamp/processor-ci-infrastructure/actions/workflows/build.yml)
-
 - **Não fala Inglês? [clique aqui](./README.pt.md)**
 
 Welcome to ProcessorCI!
