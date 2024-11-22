@@ -4,25 +4,26 @@
 install_debian() {
     echo "Detectado Debian/Ubuntu."
     sudo apt update
-    sudo apt install -y meson libevent-dev libjson-c-dev make git curl  gzip wget clang docker docker-compose build-essential cmake
+    sudo apt install -y meson libevent-dev libjson-c-dev make git curl  gzip wget \
+        clang docker docker-compose build-essential cmake ufw
 
 }
 
 # Função para instalar dependências no Fedora
 install_fedora() {
     echo "Detectado Fedora."
-    sudo dnf install -y meson libevent-devel json-c-devel make git curl gzip wget clang docker docker-compose cmake
+    sudo dnf install -y meson libevent-devel json-c-devel make git curl gzip wget clang docker docker-compose cmake ufw
 }
 
 # Função para instalar dependências no Arch
 install_arch() {
     echo "Detectado Arch."
-    sudo pacman -Syu --noconfirm meson libevent json-c make git curl gzip wget clang docker docker-compose base-devel cmake
+    sudo pacman -Syu --noconfirm meson libevent json-c make git curl gzip wget clang docker docker-compose base-devel cmake ufw
 }
 
 install_centos() {
     echo "Detectado Cent oS."
-    sudo yum install -y meson libevent-devel json-c-devel make git curl gzip wget clang docker docker-compose cmake
+    sudo yum install -y meson libevent-devel json-c-devel make git curl gzip wget clang docker docker-compose cmake ufw
 }
 
 # Detectando a distribuição
@@ -102,6 +103,10 @@ make -j$(nproc)
 
 echo "Instalação concluída com sucesso!"
 
+# Configurando UFW
+
+sudo ufw allow ssh
+sudo ufw allow "Nginx Full"
 
 # Configurando cron
 
