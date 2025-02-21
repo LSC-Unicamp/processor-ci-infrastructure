@@ -2,9 +2,6 @@
 version: '3.8'
 services:
   jenkins:
-    mem_limit: 12g
-    cpus: 8
-    shm_size: '12g'
     deploy:
       resources:
         limits:
