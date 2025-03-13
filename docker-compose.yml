@@ -19,6 +19,7 @@ services:
       - 50000:50000
     container_name: jenkins
     volumes:
+      - /usr/local/share/synlig/:/usr/local/share/synlig:ro
       - /jenkins/jenkins_log:/var/log/jenkins:rw
       - /jenkins/jenkins_home:/var/jenkins_home:rw
       - /var/run/docker.sock:/var/run/docker.sock

@@ -11,7 +11,7 @@ RUN apt-get update && apt-get install -y \
     python3 \
     python3-pip \
     python3-dev libtinfo-dev \
-    python-is-python3 pipx python3-xmlrunner python3-serial 
+    python-is-python3 pipx python3-xmlrunner python3-serial
 
 RUN ln -s /lib/x86_64-linux-gnu/libtinfo.so.6 /lib/x86_64-linux-gnu/libtinfo.so.5
 
@@ -24,7 +24,8 @@ RUN localedef -i en_US -f UTF-8 en_US.UTF-8
 RUN echo "LANG=\"en_US.UTF-8\"" > /etc/locale.conf
 RUN ln -s -f /usr/share/zoneinfo/US/Eastern /etc/localtime
 
-RUN curl -sSLf https://scala-cli.virtuslab.org/get | sh
+RUN curl -fLo scala-cli.deb https://github.com/Virtuslab/scala-cli/releases/latest/download/scala-cli-x86_64-pc-linux.deb
+RUN dpkg -i scala-cli.deb
 
 RUN curl -O -L https://github.com/chipsalliance/chisel/releases/latest/download/chisel-example.scala
 
